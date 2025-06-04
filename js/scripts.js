@@ -10,16 +10,17 @@ let pokemonList = [
 
 
 //for loop to print out: Name(height:0.7) in DOM
-for (let i=0; i < pokemonList.length; i++) {
-  let pokemon = pokemonList[i];
-  document.writeln(`${pokemon.name} (height:${pokemon.height})` + "</p>");
-}
-
-
+//<p> is used to create a paragraph in HTML, that way each object is on it's own line
 //contional loop to print out pokemons that have a height greater than 10
 for (let i=0; i < pokemonList.length; i++) {
+  let pokemon = pokemonList[i];
+  document.writeln(`<p>${pokemon.name} (height:${pokemon.height})` + "</p>");
+
   if (pokemonList[i].height > 10){
-    document.writeln(`${pokemonList[i].name} is very large` + '</p>');
+    document.writeln(`<p>${pokemonList[i].name} is very large!` + '</p>');
   }
 }
+
+
+
 
