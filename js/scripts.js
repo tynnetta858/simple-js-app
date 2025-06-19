@@ -1,15 +1,25 @@
-let pokemonList = [
-  {name: 'Pikachu', height: 5, types: ['electric', 'flying']},
-  {name: 'Squirtle', height: 5, types: ['water']},
-  {name: 'Butterfree', height: 11, types: ['bug', 'flying']}
-]
-//pokemonList is an array of objects, each object represents a pokemon with its name, height, and types.
-//object are in curly braces{}
-//name, height and types are the properties of the object
-//values are located after semicolon for each property
+let pokemonRepository = (function() {
+  let pokemonList = [
+    {name: 'Pikachu', height: 5, types: ['electric', 'flying']},
+    {name: 'Squirtle', height: 5, types: ['water']},
+    {name: 'Butterfree', height: 11, types: ['bug', 'flying']}
+  ];
 
+  function getAll() {
+    return pokemonList;
+  }
 
-pokemonList.forEach(function(pokemon) {
+  function add(item) {
+    pokemonList.push(item);
+  }
+
+  return {
+    getAll: getAll,
+    add: add
+  };
+})();
+
+pokemonRepository.getAll().forEach(function(pokemon) {
   document.writeln(`<p>${pokemon.name} (height:${pokemon.height})</p>`);
   if (pokemon.height > 10) {
     document.writeln(`<p>${pokemon.name} is very large!</p>`);
@@ -18,24 +28,8 @@ pokemonList.forEach(function(pokemon) {
 
 
 
-// //for loop to print out: Name(height:0.7) in DOM
-// //<p> is used to create a paragraph in HTML, that way each object is on it's own line
-// //contional loop to print out pokemons that have a height greater than 10
-// for (let i=0; i < pokemonList.length; i++) {
-//   // i = 0
-//   // pokemon = pikachu 
-//   // i = 1 
-//   // pokemon = squirtle
-//   // i = 2
-//   // pokemon - butterfree
-//   // i = 3 
-//   // length is how many 1-3 , i is index 0-2
-//   // 3 < 3 - false so loop stops
-//   let pokemon = pokemonList[i];
-//   document.writeln(`<p>${pokemon.name} (height:${pokemon.height}) + </p>`);
 
-//   if (pokemon.height > 10){
-//     document.writeln(`<p>${pokemon.name} is very large! + </p>`);
-//   }
-// }
+
+
+
 
